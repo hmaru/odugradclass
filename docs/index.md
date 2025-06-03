@@ -7,12 +7,7 @@ title: 講義トップページ
 このページは講義資料のトップページです。
 
 ## 資料一覧
-
-- [posit Cloud アカウント作成方法](./slides/posit Cloud アカウント作成方法.pdf)
-- [posit Cloud アカウント作成方法](./slides/posit_Cloud_アカウント作成方法.pdf)
 - [posit Cloud アカウント作成方法](./slides/posit_Cloud_setup.pdf)
-
-- [posit Cloud アカウント作成方法](./posit_Cloud_setup.pdf)
 
 ---
 
