@@ -4,10 +4,24 @@ title: 講義トップページ
 
 # ようこそ！
 
-このページは講義資料のトップページです。
+このページは大学院講義　微生物学（円山）　講義資料のトップページです。
 
-## 資料一覧
+## 準備
+- Rというプログラミング言語を使用する演習を行います。
+- Rを実習室のPCにダウンロードできませんので、Web上でRの操作ができる"posit Cloud"（旧 Rstudio Cloud）を用います。
+
+- 授業までに、事前にposit Cloudのアカウントを作っておいてください。（当日でもできますが、人数が多いと時間がかかる可能性があります。）
+
+- posit Cloudのトップページ(https://posit.cloud/)で、"Get Started"を選択し、"Cloud Free"プラン欄の"Learn more"ボタンをクリックし、"Sign Up"してください。
+Googleのアカウントで登録可能です。
+（PDFも参照してください。）
 - [posit Cloud アカウント作成方法](./slides/posit_Cloud_setup.pdf)
+
+- 当日、posit Cloudがうまく使えなければ、別のサイトを使用するかもしれません。
+(https://rdrr.io/snippets/)
+
+## 資料
+当日までに追加します
 
 ---
 
