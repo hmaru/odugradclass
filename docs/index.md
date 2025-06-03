@@ -11,7 +11,7 @@ Rというプログラミング言語を使用する演習を行います。
 Rを実習室のPCにダウンロードできませんので、Web上でRの操作ができる"posit Cloud"（旧 Rstudio Cloud）を用います。
 
 授業までに、事前に以下のPDFを参考に、[posit Cloud](https://posit.cloud/)のアカウントを作っておいてください。（当日でもできますが、人数が多いと時間がかかる可能性があります。）
-- [posit Cloud アカウント作成方法.pdf](./slides/posit_Cloud_setup.pdf) も参考にしてください。
+- [posit Cloud アカウント作成方法.pdf](./slides/posit_Cloud_setup.pdf) 
 
 posit Cloudのトップページ(https://posit.cloud/) で、 'Get Started'を選択し、"Cloud Free"プラン欄の"Learn more"ボタンをクリックし、"Sign Up"してください。Googleのアカウントで登録可能です。
 
