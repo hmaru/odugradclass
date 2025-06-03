@@ -11,6 +11,8 @@ title: 講義トップページ
 - [posit Cloud アカウント作成方法](../slides/posit_Cloud_アカウント作成方法.pdf)
 - [posit Cloud アカウント作成方法](slides/posit_Cloud_setup.pdf)
 - [posit Cloud アカウント作成方法](../slides/posit_Cloud_setup.pdf)
+- test (./test.md)
+- test.md
 
 ---
 
