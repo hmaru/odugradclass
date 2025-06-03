@@ -12,10 +12,8 @@ title: 講義トップページ
 
 - 授業までに、事前にposit Cloudのアカウントを作っておいてください。（当日でもできますが、人数が多いと時間がかかる可能性があります。）
 
-- posit Cloudのトップページ(https://posit.cloud/)で、"Get Started"を選択し、"Cloud Free"プラン欄の"Learn more"ボタンをクリックし、"Sign Up"してください。
-Googleのアカウントで登録可能です。
-（PDFも参照してください。）
-- [posit Cloud アカウント作成方法](./slides/posit_Cloud_setup.pdf)
+- posit Cloudのトップページ(https://posit.cloud/)で、 'Get Started'を選択し、"Cloud Free"プラン欄の"Learn more"ボタンをクリックし、"Sign Up"してください。Googleのアカウントで登録可能です。
+（[posit Cloud アカウント作成方法.pdf](./slides/posit_Cloud_setup.pdf)
 
 - 当日、posit Cloudがうまく使えなければ、別のサイトを使用するかもしれません。
 (https://rdrr.io/snippets/)
