@@ -15,14 +15,14 @@ Rを実習室のPCにダウンロードできませんので、Web上でRの操�
 
 posit Cloudのトップページ(https://posit.cloud/) で、 'Get Started'を選択し、"Cloud Free"プラン欄の"Learn more"ボタンをクリックし、"Sign Up"してください。Googleのアカウントで登録可能です。
 
-当日、posit Cloudがうまく使えなければ、[別のサイト]([https://rdrr.io/snippets/])を使用するかもしれません。
+当日、posit Cloudがうまく使えなければ、別のサイト(rdrr.io)を使用するかもしれません。
 
 ## 資料
 当日までに追加します
 
 ## 使用するサイト
-[posit Cloud](https://posit.cloud/)
-[rdrr.io]([https://rdrr.io/snippets/])
+- [posit Cloud](https://posit.cloud/)
+- [rdrr.io](https://rdrr.io/snippets/)
 
 ---
 
