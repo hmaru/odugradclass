@@ -18,7 +18,7 @@ posit Cloudのトップページ(https://posit.cloud/) で、 'Get Started'を�
 当日、posit Cloudがうまく使えなければ、別のサイト(rdrr.io)を使用するかもしれません。
 
 ## 資料
-当日までに追加します
+- [講義スライド(2025年度)](./slides/250605_大学院講義.pdf)
 
 ## 使用するサイト
 - [posit Cloud](https://posit.cloud/)
