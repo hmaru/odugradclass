@@ -1,0 +1,184 @@
+---
+title: "大学院講義：微生物学 演習マニュアル"
+subtitle: "統計用プログラミング言語Rの活用法"
+author: "微生物学講座　円山"
+date: "2026-06-04"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    embed-resources: true
+    css: |
+      body { 
+        font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+        font-size: 110%; /* Slightly larger for projector */
+        line-height: 1.6;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      h1 { margin-top: 2em; border-bottom: 2px solid #ddd; padding-bottom: 5px; }
+      h2 { margin-top: 1.5em; }
+      .en { font-size: 0.85em; color: #777; font-weight: normal; margin-left: 10px; }
+      pre { font-size: 1.1em; } /* Larger code blocks */
+      blockquote {
+        font-size: 0.95em;
+        color: #666;
+        border-left: 4px solid #ccc;
+        margin-left: 0;
+        padding-left: 1em;
+        font-style: italic;
+        background-color: #f9f9f9;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+      }
+  pdf:
+    pdf-engine: xelatex
+    documentclass: bxjsarticle
+    classoption: [pandoc, ja=standard]
+    toc: true
+    toc-depth: 2
+---
+
+# はじめに / [Introduction]{.en}
+
+このマニュアルは、本日の講義で入力する R のコードをまとめたものです。
+このマニュアルのコードを Posit Cloud の「Console」にコピー＆ペーストして実行しながら進めてください。
+
+> This manual summarizes the R code you will enter during today's lecture. Please proceed by copying and pasting the code from this manual into the "Console" of Posit Cloud.
+
+## なぜ R を使うのか？（再現可能性） / [Why use R? (Reproducibility)]{.en}
+
+研究において、**「再現可能性 (Reproducibility)」**は非常に重要です。同じデータから、誰がやっても同じ分析結果やグラフが得られる必要があります。
+Excel では「どこをクリックしたか」の記録が残りにくいですが、R を使えば**操作がすべて「コード」として記録される**ため、後から完璧に検証・再現することができます。
+
+> In research, **Reproducibility** is crucial. Anyone should be able to obtain the same results from the same data. While Excel doesn't easily record "where you clicked", R records all operations as "code", allowing for perfect verification and reproduction later.
+
+---
+
+# 1. データの確認 / [Checking data]{.en}
+
+本日は、R に最初から入っている「モルモットの歯の成長（ToothGrowth）」データを使います。
+
+> Today, we will use the built-in "Guinea pig tooth growth (ToothGrowth)" data in R.
+
+```{r}
+# データの最初の6行を表示 / Show the first 6 rows
+head(ToothGrowth)
+
+# データの構造を確認 / Check data structure
+str(ToothGrowth)
+
+# データの要約（平均値、最大・最小など） / Data summary (mean, max/min, etc.)
+summary(ToothGrowth)
+
+# 歯の長さ（len）の標準偏差 / Standard deviation of tooth length
+sd(ToothGrowth$len)
+```
+
+---
+
+# 2. データの可視化 / [Visualization]{.en}
+
+数値をグラフにして、データの特徴を視覚的に理解します。
+
+> Visualize the numbers to understand the characteristics of the data.
+
+```{r}
+# 歯の長さのヒストグラム / Histogram of tooth length
+hist(ToothGrowth$len)
+
+# 投与方法(supp)ごとの歯の長さの箱ひげ図 / Boxplot by delivery method
+boxplot(len ~ supp, data = ToothGrowth, main="Tooth length by supp")
+
+# 投与量(dose)ごとの箱ひげ図に色をつける / Boxplot by dose with colors
+boxplot(len ~ dose, data = ToothGrowth, col = c("pink", "lightblue", "lightgreen"))
+```
+
+---
+
+# 3. 統計検定 / [Statistical test]{.en}
+
+投与方法（オレンジジュースか、アスコルビン酸か）によって、歯の長さに有意な差があるかを t検定 で調べます。
+
+> Perform a t-test to see if there is a significant difference in tooth length depending on the delivery method (orange juice or ascorbic acid).
+
+```{r}
+# 投与方法(supp)によるt検定 / t-test by delivery method
+t.test(len ~ supp, data = ToothGrowth)
+```
+
+`p-value` が 0.05 より小さければ、「有意差がある（偶然ではない）」と判断します。
+
+> If the `p-value` is less than 0.05, we determine that "there is a significant difference (not by chance)".
+
+---
+
+# Appendix 1: 自分のデータを読み込む方法 / [Loading your own data]{.en}
+
+講義後、自分の研究データ（Excel 等で作った CSV ファイル）を R で分析するための手順です。
+以下の **ステップ1・ステップ2 を順番に** 実行してください。
+
+> Steps to analyze your own research data (CSV files created in Excel, etc.) in R after the lecture. Please execute **Step 1 and Step 2 in order**.
+
+### ステップ1：ファイルのアップロード / [Step 1: Upload the file]{.en}
+右下の画面にある `Upload` ボタンを押し、自分の CSV ファイル（例：`mydata.csv`）をアップロードします。
+
+> Click the `Upload` button in the bottom right window and upload your CSV file (e.g., `mydata.csv`).
+
+### ステップ2：Rで読み込む / [Step 2: Load into R]{.en}
+アップロードが完了したら、以下のコードを実行してデータを読み込みます。
+
+> Once uploaded, run the following code to load the data.
+
+```{r eval=FALSE}
+# データを "mydata" という名前で読み込む / Load data as "mydata"
+mydata <- read.csv("mydata.csv")
+
+# 読み込んだデータを確認する / Check the loaded data
+head(mydata)
+```
+
+---
+
+# Appendix 2: さらに美しいグラフを描く (ggplot2) / [Advanced plotting with ggplot2]{.en}
+
+論文 (Paper) にそのまま使えるような、より高度で美しいグラフを描きたい場合は、`tidyverse` (特に `ggplot2`) というパッケージを使用します。最初は文法が少し複雑に見えますが、慣れると非常に強力です。
+
+> To create advanced, publication-quality plots, researchers use the `tidyverse` package (specifically `ggplot2`). The syntax looks complex at first, but it is extremely powerful.
+
+```{r}
+# パッケージのインストール（初回のみ、少し時間がかかります）
+# Install package (only needed once, takes some time)
+# install.packages("tidyverse")
+
+# パッケージを読み込む / Load the package
+library(tidyverse)
+
+# ggplot2 を使って美しい箱ひげ図を描く / Create a beautiful boxplot
+ggplot(data = ToothGrowth, aes(x = supp, y = len, fill = supp)) +
+  geom_boxplot() +
+  labs(title = "Tooth Length by Delivery Method",
+       x = "Delivery Method (supp)",
+       y = "Tooth Length (len)") +
+  theme_minimal()
+```
+
+---
+
+# Appendix 3: 自分のPCで R を使うには / [Using R on your own PC]{.en}
+
+講義では Web 上の Posit Cloud を使いましたが、自分の PC で本格的に分析を行う場合は、ソフトウェアをインストールするのが一般的です。以下の **1・2 を順番に** インストールします。
+
+> Today we used Posit Cloud on the web. If you want to perform analysis on your own PC, you generally install the software. Please install the following **1 and 2 in order**.
+
+1. **R (The R Project)**: 統計計算を行う「エンジン」です。単体でも動きますが、操作画面がシンプルすぎて少し使いにくいです。
+   > **R (The R Project)**: The "engine" that performs statistical calculations. It works on its own, but the interface is too simple and a bit hard to use.
+   > - ダウンロード / Download: [CRAN](https://cran.r-project.org/)
+
+2. **RStudio (Posit)**: R を圧倒的に使いやすくするための「操作画面」です。今回の Posit Cloud と全く同じ画面で操作できます。
+   > **RStudio (Posit)**: The "interface" that makes R overwhelmingly easier to use. It looks and works exactly like the Posit Cloud we used today.
+   > - ダウンロード / Download: [RStudio Desktop](https://posit.co/download/rstudio-desktop/)
+
+※ 必ず **「1. R」を先にインストールしてから、「2. RStudio」をインストール** してください。
+> *Note: Be sure to **install "1. R" first, then install "2. RStudio"**.*
