@@ -18,17 +18,21 @@ posit Cloudのトップページ(https://posit.cloud/) で、 'Get Started'を�
 当日、posit Cloudがうまく使えなければ、別のサイト(rdrr.io)を使用するかもしれません。
 
 ## 資料
-- [講義スライド(2025年度)](./slides/250605_大学院講義.pdf)
+- [講義資料(HTML)](./slides/260604_manual.html)
+- [講義資料(PDF)](./slides/260604_manual.pdf)
 
 ## 使用するサイト
 - [posit Cloud](https://posit.cloud/)
 - [rdrr.io](https://rdrr.io/snippets/)
 
+## 過去の講義資料  
+- [講義スライド(2025年度)](./slides/250605_大学院講義.pdf)
+
 ---
 
 ### お知らせ
 
-- 次回の講義は2025年6月5日（木）10:40時からです。
+- 次回の講義は2026年6月4日（木）10:40時からです。
 - コンピュータ実習室 
 
 ---
